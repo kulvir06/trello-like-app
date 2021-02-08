@@ -2,6 +2,7 @@ import database from './utils/database';
 import express from 'express';
 import user from './routes/user';
 import board from './routes/board';
+import list from './routes/list';
 
 const exe  = async() => {
     await database.sequelize.sync();
@@ -12,6 +13,7 @@ const app = express();
 
 app.use('/user',user);
 app.use('/board',board);
+app.use('/list',list);
 
 app.listen(3000, () => { console.log('Server running on port 3000!'); });
 

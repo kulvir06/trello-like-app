@@ -17,6 +17,7 @@ router.post('/', (req,res) => {
     let members = emailExtractor(req.body.emails);
     let id = randomNumberGenerator();
     members.forEach(member => obj.addBoard(name,member,id));    
-})
+});
+
 
 module.exports = router;
