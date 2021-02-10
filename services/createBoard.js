@@ -18,6 +18,24 @@ class create{
             }
         });
     }
+    addNewMember(email, board){
+        return new Promise(async resolve => {
+            try{
+                const boardData = await db.board.findOne({ where: { name: board }});
+                const newMember = await db.board.create({
+                    name: boardData.dataValues.name,
+                    lists: boardData.dataValues.lists,
+                    id: boardData.dataValues.id,
+                    membersOfBoard: email
+                })
+                 .then(() => console.log('new member created'))
+                 .catch((err) => console.log('error occurred = '+err));
+                resolve(newMember);                 
+            } catch(err) {
+                console.log('error occurred = '+err);
+            }
+        })
+    }
 }
 
 module.exports = create;

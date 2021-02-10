@@ -43,7 +43,10 @@ router.post('/modify/deleteboardmember', async (req,res) => {
     await obj.deleteBoardMember(req.body.email);
 });
 
-
+router.post('/modify/addboardmember', async (req,res) => {
+    const obj = new createBoard();
+    await obj.addNewMember(req.body.email, boardName);
+});
 
 
 module.exports = router;
