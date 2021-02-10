@@ -31,5 +31,12 @@ router.get('/delete/:id', async (req,res) => {
 
 });
 
+let boardName;
+
+router.get('/modify/:id', (req,res) => {
+    boardName = req.params.id;
+    res.sendFile('C:/Users/kulvir/Desktop/internship/trello-like-app/public/updateBoardMember.html')
+});
+
 
 module.exports = router;
