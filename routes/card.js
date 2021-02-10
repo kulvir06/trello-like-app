@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import randomNumberGenerator from '../utils/randomGen';
 import createCard from '../services/createCard';
 import listIdExtractor from '../utils/listIdExtractor';
+import cardExtractor from '../utils/cardExtractor';
 
 const router = express.Router();
 
@@ -26,7 +27,9 @@ router.post('/', async (req,res) => {
 
     let listId = await listIdExtractor(boardName, listName);
 
-    await obj.updateList(id+',',listId);
+    let cardId = await cardExtractor(listId);
+
+    await obj.updateList(cardId+id+',',listId);
 
 });
 
