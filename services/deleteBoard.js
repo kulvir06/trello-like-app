@@ -27,6 +27,18 @@ class remove{
             }
         });
     }
+    deleteBoardMember(email){
+        return new Promise(async resolve => {
+            try{
+                const del = await db.board.destroy({ where: { membersOfBoard: email } })
+                 .then(() => console.log('member removed'))
+                 .catch((err) => console.log('error occured = '+err));
+                resolve(del);
+            } catch(err) {
+                console.log('error occured = '+err);
+            }
+        });
+    }
 }
 
 module.exports = remove;

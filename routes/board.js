@@ -38,5 +38,12 @@ router.get('/modify/:id', (req,res) => {
     res.sendFile('C:/Users/kulvir/Desktop/internship/trello-like-app/public/updateBoardMember.html')
 });
 
+router.post('/modify/deleteboardmember', async (req,res) => {
+    const obj = new deleteBoard();
+    await obj.deleteBoardMember(req.body.email);
+});
+
+
+
 
 module.exports = router;
