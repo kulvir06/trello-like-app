@@ -34,6 +34,20 @@ class create{
             } catch(err) {
                 console.log('error occurred = '+err);
             }
+        });
+    }
+    changeBoardName(newName, boardName){
+        return new Promise(async resolve => {
+            try{
+                const newBoardName = await db.board.update({
+                    name: newName
+                }, { where: { name: boardName } })
+                 .then(() => console.log('board name updated'))
+                 .catch((err) => console.log('error occurred = '+err));
+                resolve(newBoardName);                 
+            } catch(err){
+                console.log('error occurred = '+err);
+            }
         })
     }
 }

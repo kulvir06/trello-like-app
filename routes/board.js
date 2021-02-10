@@ -48,5 +48,9 @@ router.post('/modify/addboardmember', async (req,res) => {
     await obj.addNewMember(req.body.email, boardName);
 });
 
+router.post('/modify/changename', async (req,res) => {
+    const obj =  new createBoard();
+    await obj.changeBoardName(req.body.name, boardName);
+});
 
 module.exports = router;
