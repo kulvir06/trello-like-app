@@ -17,7 +17,7 @@ class remove{
         return new Promise(async resolve => {
             try{
                 listIds.forEach(async listId => {
-                    const del = await db.list.destroy({ where: {id: listId }})  
+                    const del = await db.list.destroy({ where: { id: listId }})  
                      .then(() => console.log('list deleted'))
                      .catch((err) => console.log('error occured = '+err));
                     resolve(del);                                  
